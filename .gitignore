@@ -1,6 +1,15 @@
 # Compiled class file
 *.class
 
+# Local metadata and output directories
+.idea/
+target/
+
+# Local Maven metadata and files
+.mvn/
+mvnw
+mvnw.cmd
+
 # Log file
 *.log
 
