@@ -1,16 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.steamapiclient.MainController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
+<VBox minHeight="600.0" minWidth="800.0" spacing="20.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.steamapiclient.MainController">
+  <padding>
+    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+  </padding>
+   <HBox spacing="10.0">
+      <children>
+      
+        <Label text="Steam App ID" />
+         <TextField fx:id="textFieldAppId" />
+      </children>
+      <padding>
+         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+      </padding>
+   </HBox>
+   <TextArea editable="false" prefHeight="0.0" prefWidth="760.0" text="Example Steam App ID's: [Apex Legends = 1172470], [Rocket League = 252950]">
+      <font>
+         <Font name="System Italic" size="12.0" />
+      </font></TextArea>
+  <Button onAction="#onGetAchievementsForAppButtonClick" text="Get Achievements List for App ID" />
+   <Separator prefWidth="200.0" />
+   <Label text="Steam Web Service JSON Response" />
+   <TextArea fx:id="responseTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
+   <Separator prefWidth="200.0" />
+   <TableView fx:id="achievementsTable" prefHeight="200.0" prefWidth="200.0">
+     <columns>
+       <TableColumn fx:id="achievementName" editable="false" prefWidth="380.0" text="Achievement Name" />
+       <TableColumn fx:id="achievementPercent" minWidth="0.0" prefWidth="379.0" text="Percentage of Gamers Who Have Earned" />
+     </columns>
+   </TableView>
 </VBox>
